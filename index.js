@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 4000;
 const URI = process.env.MongoDBURI;
 
 // Define the __dirname path
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 // Middleware
 app.use(cors());
@@ -40,19 +40,19 @@ app.use("/book", bookRoute);
 app.use("/user", userRoute);
 
 // Serve static frontend files
-app.use(express.static(path.join(__dirname, "./Frontend/dist")));
+// app.use(express.static(path.join(__dirname, "./Frontend/dist")));
 
 // Serve the index.html file for any other route
-app.get("*", (req, res) => {
-    res.sendFile(
-        path.join(__dirname, "./Frontend/dist/index.html"), // Corrected path to index.html
-        function (err) {
-            if (err) {
-                res.status(500).send(err); // Send error if any
-            }
-        }
-    );
-});
+// app.get("*", (req, res) => {
+//     res.sendFile(
+//         path.join(__dirname, "./Frontend/dist/index.html"), // Corrected path to index.html
+//         function (err) {
+//             if (err) {
+//                 res.status(500).send(err); // Send error if any
+//             }
+//         }
+//     );
+// });
 
 // Start the server
 app.listen(PORT, () => {
